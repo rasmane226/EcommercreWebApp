@@ -1,0 +1,39 @@
+﻿@model WebApp.Models.Food
+@{
+    ViewData["Title"] = "GetFood";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h1>Get Food</h1>
+
+@using (Html.BeginForm("UpdateFood", "FoodController1", FormMethod.Post))
+{
+    <h3>Food ID</h3>
+    @Html.TextBoxFor(x=>x.FoodID, new{ @class="form-control"})
+    <br />
+    <h3>Food Name</h3>
+    @Html.TextBoxFor(x=>x.FoodName, new{ @class="form-control"})
+    <br />
+    <h3>Food Stock</h3>
+    @Html.TextBoxFor(x=>x.Stock, new{ @class="form-control"})
+    <br />
+    <h3>Food Price</h3>
+    @Html.TextBoxFor(x=>x.Price, new{ @class="form-control"})
+    <br />
+    <h3>Food Image</h3>
+    @Html.TextBoxFor(x=>x.ImageUrl, new{ @class="form-control"})
+    <br />
+    <h3>CategoryID</h3>
+@*     @Html.TextBoxFor(x=>x.CategoryID, new{ @class="form-control"}) *@
+    @Html.DropDownListFor(x=>x.CategoryID, (List<SelectListItem>)ViewBag.v1, new{ @class="form-control"})
+    <br />
+    <h3>Food Description</h3>
+    @Html.TextAreaFor(x=>x.FoodDescription, new{ @class="form-control"})
+    <br />
+
+    <button class="btn btn-info">Update</button>
+
+
+
+}
+
